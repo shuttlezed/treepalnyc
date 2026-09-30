@@ -1,0 +1,114 @@
+/* ---------- Base ---------- */
+
+:root {
+  --eggshell: #f7f3e6;
+  --ink: #2b2620;
+  --muted: #7a7266;
+  --rule: #ded6c2;
+  --nav-height: 4.25rem;
+}
+
+html {
+  background-color: var(--eggshell);
+  scroll-behavior: smooth;           /* smooth anchor scrolling, no JS needed */
+}
+
+body {
+  margin: 3rem;
+  background-color: var(--eggshell);
+  color: var(--ink);
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* ---------- Menu ---------- */
+
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--eggshell);
+  border-bottom: 1px solid var(--rule);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}
+
+.menu ul {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  color: var(--ink);
+}
+
+.menu a.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ---------- Sections ---------- */
+
+section {
+  /* keeps headings clear of the sticky menu when scrolled to */
+  scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+  padding: 4rem 0;
+}
+
+section + section {
+  border-top: 1px solid var(--rule);
+}
+
+h2 {
+  font-family: "Ultra", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+}
+
+p {
+  margin: 0 0 2rem;    /* no width restriction */
+}
+
+section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+section ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Accessibility ---------- */
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 40rem) {
+  body { margin: 1.5rem; }
+  .menu ul { gap: 1.25rem; }
+}
