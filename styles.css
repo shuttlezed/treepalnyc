@@ -112,6 +112,21 @@ section ul li {
   margin-bottom: 0.5rem;
 }
 
+/* ---------- Gardening tools ---------- */
+
+.tools {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.tools .toolimg {
+  width: clamp(50px, 25vw, 160px);
+  height: auto;
+  margin: 0 1rem 0 0;
+  border: 1px solid var(--green300);
+
+}
+
 /* ---------- Floating back-to-top ---------- */
 
 .to-top {
