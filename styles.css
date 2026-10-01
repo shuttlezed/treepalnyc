@@ -124,11 +124,19 @@ section ul li {
 
 .tools {
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tools p {
+  margin: 1rem 0;
+}
+
+.tools p b {
+  font-weight: 600;
 }
 
 .tools .toolimg {
-  width: clamp(50px, 25vw, 160px);
+  width: clamp(40px, 25vw, 140px);
   height: auto;
   margin: 0 1rem 0 0;
   border: 1px solid var(--green300);
