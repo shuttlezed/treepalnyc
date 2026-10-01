@@ -2,6 +2,9 @@
 
 :root {
   --eggshell: #f7f3e6;
+  --green50: #e8f5e9;
+  --green200: #a5d6a7;
+  --green300: #81c784;
   --ink: #2b2620;
   --muted: #7a7266;
   --rule: #ded6c2;
@@ -9,13 +12,13 @@
 }
 
 html {
-  background-color: var(--eggshell);
+  background-color: var(--green50);
   scroll-behavior: smooth;           /* smooth anchor scrolling, no JS needed */
 }
 
 body {
   margin: 3rem;
-  background-color: var(--eggshell);
+  background-color: var(--green50);
   color: var(--ink);
   font-family: "Poppins", system-ui, sans-serif;
   font-weight: 300;
@@ -29,7 +32,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--eggshell);
+  background-color: var(--green50);
   border-bottom: 1px solid var(--rule);
   height: var(--nav-height);
   display: flex;
@@ -38,6 +41,7 @@ body {
 
 .menu ul {
   display: flex;
+  align-items: center;
   gap: 2rem;
   margin: 0;
   padding: 0;
@@ -62,6 +66,17 @@ body {
 .menu a.active {
   color: var(--ink);
   border-bottom-color: var(--ink);
+}
+
+/* home icon sits in the menu like any other item */
+.menu a.home {
+  display: flex;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.menu .icon {
+  height: 2.5rem;
 }
 
 /* ---------- Sections ---------- */
@@ -97,6 +112,46 @@ section ul li {
   margin-bottom: 0.5rem;
 }
 
+/* ---------- Floating back-to-top ---------- */
+
+.to-top {
+  position: fixed;
+  right: 3rem;
+  top: 50%;                /* about halfway down the viewport */
+  z-index: 20;
+
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+
+  color: var(--ink);
+  background-color: var(--green200);
+  border: 1px solid var(--green300);
+  border-radius: 50%;
+
+  /* hidden until the page is scrolled; -50% keeps it vertically centred */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(calc(-50% + 0.5rem));
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+
+.to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%);
+}
+
+.to-top:hover {
+  border-color: var(--ink);
+}
+
+.to-top svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
 /* ---------- Accessibility ---------- */
 
 a:focus-visible {
@@ -106,9 +161,11 @@ a:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .to-top { transition: none; transform: translateY(-50%); }
 }
 
 @media (max-width: 40rem) {
   body { margin: 1.5rem; }
   .menu ul { gap: 1.25rem; }
+  .to-top { right: 1.25rem; }
 }
