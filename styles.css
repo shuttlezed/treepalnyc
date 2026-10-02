@@ -111,6 +111,14 @@ p {
   margin: 0 0 2rem;    /* no width restriction */
 }
 
+b {
+  font-weight: 600;
+}
+
+p.alternate {
+  margin: 0 0 1rem 0;
+}
+
 section ul {
   margin: 0;
   padding-left: 1.25rem;
@@ -125,14 +133,11 @@ section ul li {
 .tools {
   display: flex;
   margin-bottom: 1.5rem;
+  margin-right: 3rem;
 }
 
 .tools p {
   margin: 0 0 1rem 0;
-}
-
-.tools p b {
-  font-weight: 600;
 }
 
 .tools .toolimg {
@@ -148,7 +153,7 @@ section ul li {
 .to-top {
   position: fixed;
   right: 3rem;
-  top: 50%;                /* about halfway down the viewport */
+  bottom: 0;                /* about halfway down the viewport */
   z-index: 20;
 
   display: grid;
