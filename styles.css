@@ -119,12 +119,12 @@ p.alternate {
   margin: 0 0 1rem 0;
 }
 
-section ul {
+section ul, section ol {
   margin: 0;
   padding-left: 1.25rem;
 }
 
-section ul li {
+section ul li, section ol li {
   margin-bottom: 0.5rem;
 }
 
